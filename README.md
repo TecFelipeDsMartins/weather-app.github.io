@@ -1,1 +1,1 @@
-The NetNinja project - weather app
+The NetNinja project - weather-app
