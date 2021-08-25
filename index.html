@@ -13,7 +13,30 @@
     <link rel="stylesheet" href="style.css" />
     <title>Weather-app</title>
   </head>
-  <body>
+  <body calss="h-100 my-5">
+    <div class="container my-3 mx-auto">
+      <h1 class="text-muted text-center">Weather app</h1>
+        <form class="change-location my-2 text-center text-muted">
+          <label for="city">Entre a localização para obter a clima</label>
+          <input type="text" name="city" class="form-control p-4">
+        </form>
+
+        <div class="card shadow-lg rounded d-none">
+          <img src="https://via.placeholder.com/400x300" class="time card-img-top">
+          <div class="icon bg-light mx-auto text-center">
+            <img src="" alt="">
+          </div>
+          <div class="text-muted text-uppercase text-center details">
+            <h5 class="my-3">cidade</h5>
+            <div class="my-3">condições do tempo</div>
+            <div class="display-4 my-4">
+              <span>temp</span>
+              <span>&deg;C</span>
+            </div>
+          </div>
+
+        </div>
+    </div>
     <script src="./script/forecast.js"></script>
     <script src="./script/app.js"></script>
   </body>
