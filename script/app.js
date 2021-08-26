@@ -23,16 +23,9 @@ const updateUI = (data) => {
   icon.setAttribute('src', iconSrc)
   
   
-  let timeSrc = null
-
-  if(weather.IsDayTime){
-    timeSrc = 'img/day.svg'
-  } else {
-    timeSrc = 'img/night.svg'
-  }
+  let timeSrc = weather.IsDayTime ? 'img/day.svg' : 'img/night.svg'
 
   time.setAttribute('src', timeSrc)
-
 
   //remove the d-none class
   if(cards.classList.contains('d-none')){
@@ -40,7 +33,6 @@ const updateUI = (data) => {
   }
 
 }
-
 
 const updateCity = async (city) => {
   
@@ -57,9 +49,18 @@ cityForm.addEventListener('submit', (e) => {
   //get city value
   const city = cityForm.city.value.trim()
   cityForm.reset()
-
+  
   //update the UI with new city
   updateCity(city).then((data)=>{ updateUI(data)
-
   })
+  
+  //stoed city on localstorage
+  localStorage.setItem('city', city)
 })
+if(localStorage.getItem('city')){
+  updateCity(localStorage.getItem('city'))
+  .then((data)=>{ updateUI(data)})
+  .catch((err)=>{console.log(err)})
+}
+
+
